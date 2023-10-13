@@ -33,6 +33,10 @@ function oldScrabbleScorer(word) {
 	return letterPoints;
  }
 
+ function scrabbleScorer(catchTheWord) {
+   oldScrabbleScorer(catchTheWord);
+}
+ 
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
 
@@ -49,6 +53,7 @@ function simpleScorer(word) {
    for (let i=0; i<word.length; i++) {
       simpleScore = simpleScore +1
    }
+   return simpleScore;
 //   console.log("\nSimple Score Result:");
 //   console.log(`The value for this word is ${simpleScore}.`);
    };
@@ -66,9 +71,10 @@ function vowelBonusScorer(word) {
    }
 //   console.log("\nVowel Score Result:");
 //   console.log("The value for this word is: " + vowelPoints);
+return vowelPoints;
 }
 let catchTheWord = initialPrompt();
-let scrabbleScorer = oldScrabbleScorer(catchTheWord);
+//let scrabbleScorer = oldScrabbleScorer(catchTheWord);
 
 const scoringAlgorithms = [
       {
@@ -99,16 +105,22 @@ const scoringAlgorithms = [
 
 function scorerPrompt() {
    console.log("Scorer Prompt");
-   let question = input.question("Which scoring algorithm do you wish to use?\n\n" +
+   let scorerQuestion = input.question("Which scoring algorithm do you wish to use?\n\n" +
    "0 - Simple: One point per character\n" +
    "1 - Vowel Bonus: Vowels are worth 3 points\n" +
-   "2 - Scrabble: (Uses scrabble point system)\n");
-   
-   if (question = 0) { simpleScorer(catchTheWord);
-   } else if (question = 1) { (vowelBonusScorer(catchTheWord));
-   } else (question = 2) (oldScrabbleScorer(catchTheWord));
-}
+   "2 - Scrabble: (Uses scrabble point system)\n\n" +
+   "Enter your choice (0, 1 or 2) now: "
+   );
 
+   if (scorerQuestion = 0) { simpleScorer(catchTheWord);
+//   console.log(`The score for ${catchTheWord} is ` + simpleScore + '.');
+   } else if (scorerQuestion = 1) { (vowelBonusScorer(catchTheWord));
+   } else if (scorerQuestion = 2) { (oldScrabbleScorer(catchTheWord));
+   } else { 
+      console.log("Invalid entry! 0, 1, 2 only!");
+}
+return scorerQuestion;
+}
 function transform() {};
 
 let newPointStructure;
