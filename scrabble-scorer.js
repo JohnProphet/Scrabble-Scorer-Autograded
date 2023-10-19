@@ -38,6 +38,8 @@ function simpleScorer(word) {
       simpleScore = simpleScore +1
    }
    return simpleScore;
+//   console.log("\nSimple Score Result:");
+//   console.log(`The value for this word is ${simpleScore}.`);
    };
 function vowelBonusScorer(word) {
    word = word.toUpperCase();
@@ -49,7 +51,9 @@ function vowelBonusScorer(word) {
          }
        }
    }
-   return vowelPoints;
+//   console.log("\nVowel Score Result:");
+//   console.log("The value for this word is: " + vowelPoints);
+return vowelPoints;
 }
 function scrabbleScorer(word) {
    let newScore = 0;
@@ -70,14 +74,14 @@ const scoringAlgorithms = [
          description: "Vowels are 3 points, Consonants are 1 point",
          name: "Bonus Vowels",
          scorerFunction: vowelBonusScorer
+         
       },
        {
          description: "The traditional scoring algorithm",
-         name: "Scrabble",
+         name: "Scrabble Scorer",
          scorerFunction: scrabbleScorer
-         },
+         }
 ];
-
 function scorerPrompt() {
    console.log("Scorer Prompt");
    let scorerChoice = input.question("Which scoring algorithm do you wish to use?\n\n" +
@@ -91,11 +95,11 @@ function scorerPrompt() {
    } else if (scorerChoice === 2) { (scrabbleScorer(catchTheWord));
    } else {
       console.log("Invalid entry! 0, 1, 2 only!");
-   }
-   return scorerChoice;
+         }
+return scorerChoice;
 }
-
-function transform() {
+//console.log(scorerChoice);
+function transform(oldPointStructure) {
    let newPointStructure = {};
    for (item in oldPointStructure) {
       for (let i=0; i < oldPointStructure[item].length; i++) {
@@ -112,6 +116,9 @@ function runProgram() {
 scorerPrompt();
 }
 
+
+// Don't write any code below this line //
+// And don't change these or your program will not run as expected //
 module.exports = {
    initialPrompt: initialPrompt,
    transform: transform,
