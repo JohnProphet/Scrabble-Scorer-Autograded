@@ -1,4 +1,3 @@
-
 // This assignment is inspired by a problem on Exercism (https://exercism.org/tracks/javascript/exercises/etl) that demonstrates Extract-Transform-Load using Scrabble's scoring system.
 const input = require("readline-sync");
 const oldPointStructure = {
@@ -28,12 +27,15 @@ function oldScrabbleScorer(word) {
  }
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
+
 function initialPrompt() {
    let word = input.question("Let's play some scrabble!\nEnter a word:");
    return word;
 };
+
 //Define a function that takes a word as a parameter and returns a numerical score.
 //Each letter within the word is worth 1 point.
+
 function simpleScorer(word) {
    let simpleScore =0;
    for (let i=0; i<word.length; i++) {
@@ -43,8 +45,10 @@ function simpleScorer(word) {
 //   console.log("\nSimple Score Result:");
 //   console.log(`The value for this word is ${simpleScore}.`);
    };
+
 //Define a function that takes a word as a parameter and returns a score.
 //Each vowel within the word is worth 3 points, and each consonant is worth 1 point.
+
 function vowelBonusScorer(word) {
    word = word.toUpperCase();
    let vowelPoints = 0 ;
@@ -61,7 +65,7 @@ return vowelPoints;
 }
 function scrabbleScorer() {
    //console.log("scrabbleScorer function called");
-   transform(oldScrabbleScorer(word)); 
+   transform(oldScrabbleScorer()); 
    let newScore = letterPoints;
    return newScore; 
 }
@@ -93,6 +97,7 @@ const scoringAlgorithms = [
 //If the user enters 1, use the vowel bonus scoring function.
 //If the user enters 2, use the Scrabble scoring option.
 //scorerPrompt() should return the object the user has selected.
+
 function scorerPrompt() {
    console.log("Scorer Prompt");
    let scorerChoice = input.question("Which scoring algorithm do you wish to use?\n\n" +
@@ -126,9 +131,9 @@ function runProgram() {
 scorerPrompt();
 }
 
-
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
+
 module.exports = {
    initialPrompt: initialPrompt,
    transform: transform,
